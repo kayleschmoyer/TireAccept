@@ -1,0 +1,249 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: #f5f5f5;
+    color: #333;
+    line-height: 1.6;
+}
+
+.app {
+    max-width: 800px;
+    margin: 0 auto;
+    min-height: 100vh;
+    background: white;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+}
+
+header {
+    background: #2c3e50;
+    color: white;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.mode-indicator {
+    background: #3498db;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+}
+
+main {
+    padding: 1rem;
+}
+
+.screen {
+    animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+h2 {
+    margin-bottom: 1.5rem;
+    color: #2c3e50;
+}
+
+.select-input, .barcode-input {
+    width: 100%;
+    padding: 1rem;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
+.select-input:focus, .barcode-input:focus {
+    outline: none;
+    border-color: #3498db;
+}
+
+.btn {
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    width: 100%;
+    margin-bottom: 0.5rem;
+}
+
+.btn-primary {
+    background: #3498db;
+    color: white;
+}
+
+.btn-primary:hover:not(:disabled) {
+    background: #2980b9;
+}
+
+.btn-success {
+    background: #27ae60;
+    color: white;
+}
+
+.btn-secondary {
+    background: #95a5a6;
+    color: white;
+}
+
+.btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.po-info {
+    background: #ecf0f1;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+}
+
+.progress {
+    margin-top: 0.5rem;
+}
+
+.progress-bar {
+    background: #ddd;
+    height: 8px;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-top: 0.5rem;
+}
+
+.progress-bar #progressFill {
+    background: #27ae60;
+    height: 100%;
+    width: 0%;
+    transition: width 0.3s ease;
+}
+
+.scan-section {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.scan-section .barcode-input {
+    flex: 1;
+    margin-bottom: 0;
+}
+
+.scan-section .btn {
+    width: auto;
+    margin-bottom: 0;
+    padding: 1rem 1.5rem;
+}
+
+.parts-list {
+    max-height: 400px;
+    overflow-y: auto;
+    margin-bottom: 1.5rem;
+}
+
+.part-item {
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.part-item.completed {
+    background: #d5f4e6;
+    border-color: #27ae60;
+}
+
+.part-item.over-received {
+    background: #ffeaa7;
+    border-color: #fdcb6e;
+}
+
+.part-info {
+    flex: 1;
+}
+
+.part-number {
+    font-weight: bold;
+    margin-bottom: 0.25rem;
+}
+
+.part-vendor {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.part-qty {
+    text-align: right;
+    font-weight: bold;
+}
+
+.part-qty.completed {
+    color: #27ae60;
+}
+
+.part-qty.over-received {
+    color: #e17055;
+}
+
+.toast {
+    position: fixed;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #2c3e50;
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    opacity: 0;
+    transition: opacity 0.3s;
+    z-index: 1000;
+}
+
+.toast.show {
+    opacity: 1;
+}
+
+.toast.error {
+    background: #e74c3c;
+}
+
+.toast.success {
+    background: #27ae60;
+}
+
+@media (max-width: 480px) {
+    .app {
+        box-shadow: none;
+    }
+    
+    header {
+        padding: 0.75rem;
+    }
+    
+    main {
+        padding: 0.75rem;
+    }
+    
+    .scan-section {
+        flex-direction: column;
+    }
+    
+    .scan-section .btn {
+        width: 100%;
+    }
+}

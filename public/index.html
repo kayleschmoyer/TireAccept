@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TireAccept</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app">
+        <header>
+            <h1>TireAccept</h1>
+            <div class="mode-indicator" id="modeIndicator"></div>
+        </header>
+
+        <main>
+            <!-- Shop Selection (Office Mode Only) -->
+            <div class="screen" id="shopScreen">
+                <h2>Select Shop</h2>
+                <select id="shopSelect" class="select-input">
+                    <option value="">Loading shops...</option>
+                </select>
+                <button id="shopNextBtn" class="btn btn-primary" disabled>Next</button>
+            </div>
+
+            <!-- PO Selection -->
+            <div class="screen" id="poScreen" style="display: none;">
+                <h2>Select PO Number</h2>
+                <select id="poSelect" class="select-input">
+                    <option value="">Loading PO numbers...</option>
+                </select>
+                <button id="poNextBtn" class="btn btn-primary" disabled>Next</button>
+            </div>
+
+            <!-- Scanning Screen -->
+            <div class="screen" id="scanScreen" style="display: none;">
+                <div class="po-info">
+                    <h2>PO: <span id="currentPO"></span></h2>
+                    <div class="progress">
+                        <span id="progressText">0 / 0 received</span>
+                        <div class="progress-bar">
+                            <div id="progressFill"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="scan-section">
+                    <input type="text" id="barcodeInput" placeholder="Scan or enter barcode" class="barcode-input" autofocus>
+                    <button id="scanBtn" class="btn btn-primary">Scan</button>
+                </div>
+
+                <div class="parts-list" id="partsList"></div>
+
+                <div class="actions">
+                    <button id="doneBtn" class="btn btn-success" style="display: none;">Done</button>
+                    <button id="backBtn" class="btn btn-secondary">Back</button>
+                </div>
+            </div>
+        </main>
+
+        <div class="toast" id="toast"></div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
